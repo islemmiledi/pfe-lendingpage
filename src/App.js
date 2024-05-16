@@ -1,55 +1,42 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import HomePage from "./components/HomePage/home";
-// import AboutUsPage from "./components/AboutUs/aboutus"; // adjust the import path as necessary
-// import Coach from "./components/coach/coach";
-import Contact from "./components/contact/contact";
-import NosSalle from "./components/Nos Salle/nossalle";
-import NosPartenaire from "./components/Nos Partenaire/nospartenaire";
-// import SalleDetails from "./components/SalleDetails/salledetails"; // Assurez-vous que le chemin d'importation est correct
-import Legends from "./components/Salles/Legends/Legends";
-
-// Assurez-vous que le chemin d'importation est correct
-
 import { Toaster } from "react-hot-toast";
 import LoaderWithOverlay from "./components/overlay-loader";
 
-function App() {
-  const [isLoading] = React.useState(false);
+import HomePageS from "./components/HomePageS/home";
+import AboutUsPage from "./components/AboutUs/aboutus";
+import Program from "./components/Program/program";
+import Coach from "./components/coach/coach";
+import ContactS from "./components/contactS/contact";
+import Offres from "./components/offres/offres";
+import HomePage from "./components/HomePage/home";
+import Contact from "./components/contact/contact";
+import NosSalle from "./components/NosSalle/nossalle";
+import NosPartenaire from "./components/NosPartenaire/nospartenaire";
+// import SalleDetails from "./components/SalleDetails/salledetails";
 
+function App() {
   return (
     <Router>
       <div className="App">
-        {isLoading && (
-          <div className="max-h-7xl ">
-            {" "}
-            <LoaderWithOverlay></LoaderWithOverlay>
-          </div>
-        )}
-        {/* Inclure Nav ici pour qu'elle apparaisse sur toutes les pages */}
+        {/* <LoaderWithOverlay /> */}
         <Toaster />
-        {/* Any common components or layout you want to include on all pages */}
         <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/nossllee" element={<NosSalle />} />
-          {/* <Route path="/about-us" element={<AboutUsPage />} /> */}
-          <Route path="/nospartenairee" element={<NosPartenaire />} />
-          {/* <Route path="/programs" element={<Program />} /> */}
-          {/* <Route path="/coache" element={<Coach />} /> */}
-          <Route path="/contacte" element={<Contact />} />
-          <Route
-            path="/legends"
-            element={
-              <>
-                <NavLegends />
-                <Legends />
-              </>
-            }
-          />
+          {/* Specific routes should come before the more general routes */}
+          {/* <Route path="/nossllee/:salleId" element={<SalleDetails />} /> */}
+          <Route path="/salle/:salleId" element={<HomePageS />} />
+          <Route path="/about-us" element={<AboutUsPage />} />
+          <Route path="/programs" element={<Program />} />
 
-          {/* <Route path="/salledetails/:id" element={<SalleDetails />} /> */}
-          {/* Ajout de la route pour les détails de la salle */}
-          {/* Additional routes for other pages */}
+          <Route path="/coache" element={<Coach />} />
+          <Route path="/contacte-salle" element={<ContactS />} />
+          <Route path="/offers" element={<Offres />} />
+          <Route path="/nos-salles" element={<NosSalle />} />
+          {/* <Route path="/nossllee/:salleId" element={<SalleDetails />} /> */}
+          <Route path="/nospartenairee" element={<NosPartenaire />} />
+          <Route path="/contacte" element={<Contact />} />
+          <Route path="/" element={<HomePage />} />
+          {/* <Route path="/" element={<HomePageS />} /> */}
         </Routes>
       </div>
     </Router>

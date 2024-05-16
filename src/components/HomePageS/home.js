@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { Dialog } from "@headlessui/react";
 import logo from "../../assets/logo.png";
-import Footer from "../Footer";
+import FooterS from "../FooterS";
 import Header from "../header";
 import Indexhome from "./main";
+import HeaderSalle from "../headersalle";
 
 export default function HomePage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -11,11 +12,11 @@ export default function HomePage() {
   return (
     <div>
       <div className="bg-white">
-        <Header />
+        <HeaderSalle />
 
         <Indexhome />
 
-        <Footer />
+        <FooterS />
       </div>
     </div>
   );

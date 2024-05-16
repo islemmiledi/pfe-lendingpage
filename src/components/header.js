@@ -54,20 +54,17 @@
 
 // export default Header;
 
+// Header.js de votre page d'accueil
+
 import React from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import logo from "../assets/logo.png"; // Assurez-vous que ce chemin est correct
 
 const navigation = [
   { name: "Home", href: "/" },
-  // { name: "About Us", href: "/about-us" },
-  { name: "Nos Salle", href: "/nossllee" },
-  { name: "Nos Partenaire", href: "/nospartenairee" },
-
-  // { name: "Our Programs", href: "/programs" },
-  // { name: "Coache", href: "/coache" },
+  { name: "Nos Salles", href: "/nos-salles" },
+  { name: "Nos Partenaires", href: "/nos-partenaires" },
   { name: "Contact", href: "/contacte" },
-  // { name: "Offers", href: "/offers" },
 ];
 
 const Header = () => {
