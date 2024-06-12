@@ -1,134 +1,147 @@
-import React, { useState } from "react";
-import ContactDetails from "./contactdetails"; // Assurez-vous que le chemin est correct
+import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faMapMarkerAlt,
+  faPhone,
+  faEnvelope,
+  faGlobe,
+} from "@fortawesome/free-solid-svg-icons";
+import { contact } from "../HomePage/data";
 
-const ContactForm = () => {
-  const [formData, setFormData] = useState({
-    email: "",
-    name: "",
-    address: "",
-    message: "",
-  });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevFormData) => ({
-      ...prevFormData,
-      [name]: value,
-    }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Gérer la soumission du formulaire ici
-    console.log(formData);
-  };
-
+const Contact = () => {
   return (
-    <div className="bg-black text-white p-8">
-      <h2 className="text-white font-bold text-3xl mb-4 text-center">
-        CONTACTER NOUS
-      </h2>
-      <p className="text-gray-400 text-center mb-8">
-        If you have any questions, just fill in the contact form, and we will
-        answer you shortly.
-      </p>
-      <form onSubmit={handleSubmit} className="space-y-6">
-        <div className="flex flex-wrap -mx-3 mb-6">
-          <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-            <label
-              className="block uppercase tracking-wide text-gray-400 text-xs font-bold mb-2"
-              htmlFor="email"
-            >
-              Email
-            </label>
-            <input
-              className="appearance-none block w-full bg-gray-800 text-gray-300 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-gray-700"
-              id="email"
-              type="email"
-              placeholder="Entrer un email valid "
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-            />
-          </div>
-          <div className="w-full md:w-1/2 px-3">
-            <label
-              className="block uppercase tracking-wide text-gray-400 text-xs font-bold mb-2"
-              htmlFor="name"
-            >
-              Name
-            </label>
-            <input
-              className="appearance-none block w-full bg-gray-800 text-gray-300 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-gray-700"
-              id="name"
-              type="text"
-              placeholder="Entrer Votre Nom"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-            />
+    <section id="contact" className="bg-gray-100 mt-8">
+      <div className="container mx-auto py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg max-w-4xl mx-auto">
+            <div className="p-4 bg-white border-b border-gray-200">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="col-span-1">
+                  <h1
+                    className="text-xl font-bold mb-2 text-center text-custom"
+                    style={{ color: "#f04e3c", textAlign: "center" }}
+                  >
+                    CONTACT US
+                  </h1>
+                  <form
+                    method="POST"
+                    id="contactForm"
+                    name="contactForm"
+                    className="space-y-2"
+                  >
+                    <div className="flex flex-col">
+                      <label
+                        htmlFor="name"
+                        className="text-gray-600 font-medium"
+                      >
+                        Full Name
+                      </label>
+                      <input
+                        type="text"
+                        name="name"
+                        id="name"
+                        placeholder="Name"
+                        className="input"
+                      />
+                    </div>
+                    <div className="flex flex-col">
+                      <label
+                        htmlFor="email"
+                        className="text-gray-600 font-medium"
+                      >
+                        Email Address
+                      </label>
+                      <input
+                        type="email"
+                        name="email"
+                        id="email"
+                        placeholder="Email"
+                        className="input"
+                      />
+                    </div>
+                    <div className="flex flex-col">
+                      <label
+                        htmlFor="subject"
+                        className="text-gray-600 font-medium"
+                      >
+                        Subject
+                      </label>
+                      <input
+                        type="text"
+                        name="subject"
+                        id="subject"
+                        placeholder="Subject"
+                        className="input"
+                      />
+                    </div>
+                    <div className="flex flex-col">
+                      <label
+                        htmlFor="message"
+                        className="text-gray-600 font-medium"
+                      >
+                        Message
+                      </label>
+                      <textarea
+                        name="message"
+                        id="message"
+                        cols="30"
+                        rows="4"
+                        placeholder="Message"
+                        className="input resize-none"
+                      ></textarea>
+                    </div>
+                    <div className="flex justify-center">
+                      <button
+                        type="submit"
+                        className="bg-[#f04e3c] text-white py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-[#f04e3c] focus:ring-opacity-50"
+                      >
+                        Send Message
+                      </button>
+                    </div>
+                  </form>
+                </div>
+                <div className="col-span-1 bg-[#f04e3c]">
+                  <div className="text-white p-4 rounded">
+                    <h3 className="text-lg font-bold mb-2">
+                      Let's get in touch
+                    </h3>
+                    <p className="mb-2">
+                      We're open for any suggestion or just to have a chat
+                    </p>
+                    {contact.map((item, index) => (
+                      <div
+                        className="flex flex-col items-center mb-4"
+                        key={index}
+                      >
+                        <FontAwesomeIcon
+                          icon={item.icon}
+                          className="text-white text-2xl mb-2"
+                        />
+                        <div className="text-center">
+                          {item.title && (
+                            <span className="text-white font-bold block">
+                              {item.title}
+                            </span>
+                          )}
+                          {item.link ? (
+                            <a href={item.link} className="text-white block">
+                              {item.info}
+                            </a>
+                          ) : (
+                            <p className="text-white block">{item.info}</p>
+                          )}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        <div className="flex flex-wrap -mx-3 mb-6">
-          <div className="w-full px-3">
-            <label
-              className="block uppercase tracking-wide text-gray-400 text-xs font-bold mb-2"
-              htmlFor="address"
-            >
-              Adresse
-            </label>
-            <input
-              className="appearance-none block w-full bg-gray-800 text-gray-300 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-gray-700"
-              id="address"
-              type="text"
-              placeholder="Entrer Votre adresse"
-              name="address"
-              value={formData.address}
-              onChange={handleChange}
-            />
-          </div>
-        </div>
-        <div className="flex flex-wrap -mx-3 mb-6">
-          <div className="w-full px-3">
-            <label
-              className="block uppercase tracking-wide text-gray-400 text-xs font-bold mb-2"
-              htmlFor="message"
-            >
-              Message
-            </label>
-            <textarea
-              className="appearance-none block w-full bg-gray-800 text-gray-300 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-gray-700"
-              id="message"
-              placeholder="Entrer Votre message"
-              name="message"
-              value={formData.message}
-              onChange={handleChange}
-              rows="4"
-            ></textarea>
-          </div>
-        </div>
-        <div className="flex flex-wrap -mx-3 mt-6">
-          <div className="w-full px-3 text-center">
-            <button
-              className="shadow bg-red-600 hover:bg-red-700 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
-              type="submit"
-            >
-              Envoyer
-            </button>
-          </div>
-        </div>
-      </form>
-    </div>
+      </div>
+    </section>
   );
 };
 
-const Main = () => {
-  return (
-    <div>
-      {/* <ContactDetails /> */}
-      <ContactForm />
-    </div>
-  );
-};
-
-export default Main;
+export default Contact;

@@ -1,83 +1,103 @@
-// import React from "react";
-// // import backgroundImage from '../../assets/bg.png'; // Assurez-vous que le chemin vers votre image de fond est correct
-
-// const Main = () => {
-//   return (
-//     <div
-//       className="relative flex items-center justify-center"
-//       style={{
-//         backgroundColor: "black", // Utilisation de la couleur noire comme fond
-//         height: "100vh", // prend toute la hauteur de la fenêtre
-//       }}
-//     >
-//       {/* Contenu de la section principale ici */}
-//       <div className="text-center">
-//         {/* <h1
-//           className="text-6xl font-bold uppercase leading-none tracking-wide"
-//           style={{ color: "#fec600" }}
-//         >
-//           Welcome to <br /> <span style={{ color: "#ffffff" }}>FITLINE</span>
-//         </h1> */}
-//         <p className="mt-4 text-lg font-light text-white">
-//           Rejoignez la révolution du fitness en ligne. Créez la vitrine
-//           numérique de votre salle de sport dès aujourd'hui.
-//         </p>
-//         <a
-//           href="#more"
-//           className="mt-8 inline-block bg-yellow-500 text-white font-bold py-2 px-4 rounded"
-//         >
-//           READ MORE
-//         </a>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Main;
-
 import React from "react";
-// Importez votre feuille de style CSS avec les animations ici
+import backgroundImage from "../../assets/sitesalle.jpg"; // Assurez-vous que le chemin vers votre image de fond est correct
 import "./Main.css";
 
 const Main = () => {
-  // Styles pour le texte animé
-  const slideInStyle = {
-    animation: "slideInFromLeft 3s ease-out forwards",
-    transform: "translateX(-100%)",
-    fontSize: "36px", // Ajustez la taille de police comme dans l'image
-    fontFamily: "sans-serif", // Choisissez une police similaire à celle de l'image
-    fontWeight: "bold", // Police en gras
-    textTransform: "uppercase", // Texte en majuscules
-    letterSpacing: "2px", // Espacement entre les lettres
-    color: "#ffffff", // Couleur du texte
-    textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)", // Ombre portée pour le texte
-    marginTop: "20px", // Ajustez selon vos besoins
-    maxWidth: "600px", // Ajustez selon vos besoins pour le wrapping du texte
+  const textContainerStyle = {
+    maxWidth: "600px",
+    textAlign: "left",
+    color: "#000000",
+  };
+
+  const headingStyle = {
+    fontSize: "48px",
+    fontWeight: "bold",
+    marginBottom: "16px",
+  };
+
+  const subheadingStyle = {
+    fontSize: "20px",
+    marginBottom: "32px",
+  };
+
+  const buttonStyle = {
+    backgroundColor: "#000000",
+    color: "#ffffff",
+    padding: "12px 24px",
+    borderRadius: "24px",
+    fontWeight: "bold",
+    textDecoration: "none",
   };
 
   return (
     <div
-      className="relative flex items-center justify-center"
+      className="relative flex items-center p-12"
       style={{
-        backgroundColor: "black",
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundSize: "cover",
         height: "100vh",
+        position: "relative",
       }}
     >
-      <div className="text-center">
-        <p className="text-white" style={slideInStyle}>
-          Rejoignez la révolution du fitness en ligne.
-          <br />
-          Créez la vitrine numérique de votre salle de sport dès aujourd'hui.
+      {/* Overlay semi-transparent */}
+      <div
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          backgroundColor: "rgba(0, 0, 0, 0.5)",
+          zIndex: 1,
+        }}
+      ></div>
+      {/* Contenu */}
+      <div
+        style={{
+          position: "relative",
+          zIndex: 2,
+          maxWidth: "600px",
+          textAlign: "left",
+          marginLeft: "50px",
+        }}
+      >
+        <h1
+          style={{
+            ...headingStyle,
+            color: "#FFFFFF",
+            textTransform: "uppercase",
+            textShadow: "3px 3px 6px rgba(0, 0, 0, 0.8)",
+            margin: "0 0 20px 0",
+          }}
+        >
+          Build a more powerful fitness business
+        </h1>
+        <p
+          style={{
+            ...subheadingStyle,
+            color: "#FFFFFF",
+            textTransform: "uppercase",
+            textShadow: "2px 2px 5px rgba(0, 0, 0, 0.8)",
+            margin: "0 0 20px 0",
+          }}
+        >
+          Keep up with a changing industry, make your clients feel their best,
+          and boost your productivity—all from a single platform.
         </p>
         <a
           href="#more"
-          className="mt-8 inline-block bg-red-500 text-white font-bold py-2 px-4 rounded"
           style={{
-            backgroundColor: "#e53e3e", // La couleur du bouton de l'image
-            boxShadow: "0 2px 4px rgba(0, 0, 0, 0.5)", // Ombre portée pour le bouton
+            ...buttonStyle,
+            backgroundColor: "#333333",
+            color: "#FFFFFF",
+            padding: "10px 20px",
+            borderRadius: "5px",
+            textDecoration: "none",
+            textTransform: "uppercase",
+            boxShadow: "3px 3px 6px rgba(0, 0, 0, 0.4)",
           }}
         >
-          READ MORE
+          Let's Go
         </a>
       </div>
     </div>

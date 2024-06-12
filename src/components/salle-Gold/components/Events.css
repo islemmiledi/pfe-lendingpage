@@ -1,0 +1,79 @@
+/* Events Section */
+
+.events-section {
+  padding: 60px 0;
+  background-color: #121212; /* Background color similar to the image */
+}
+
+.section-title {
+  font-family: "Oswald", sans-serif;
+  font-size: 2.5rem;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.section-subtitle {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.25rem;
+  color: #aaa;
+}
+
+.event-card-img {
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.event-card-img img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.event-card:hover .event-card-img img {
+  transform: scale(1.1);
+}
+
+.event-card-body {
+  padding: 20px;
+  color: #fff;
+}
+
+.event-card-title {
+  font-family: "Oswald", sans-serif;
+  font-size: 1.5rem;
+  color: #e31c25; /* Title color */
+  margin-bottom: 10px;
+}
+
+.event-card-date,
+.event-card-time,
+.event-card-location {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  color: #bbb;
+  margin-bottom: 5px;
+}
+
+.event-card-description {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  color: #ddd;
+  margin-bottom: 15px;
+}
+
+.event-card-button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #007bff;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.event-card-button:hover {
+  background-color: #0056b3;
+}

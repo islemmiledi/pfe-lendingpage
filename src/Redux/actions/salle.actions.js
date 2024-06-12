@@ -22,3 +22,12 @@ export const getOneSalleById = createAsyncThunk(
     }
   }
 );
+
+export const getSallesByTheme = createAsyncThunk("get/theme", async (theme) => {
+  try {
+    let response = await axios.post(`${apiBaseUrl}salle/${theme}`);
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
+});

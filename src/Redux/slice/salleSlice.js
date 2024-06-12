@@ -1,9 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getAllSalle, getOneSalleById } from "../actions/salle.actions"; // Assurez-vous que le chemin d'importation est correct
+import {
+  getAllSalle,
+  getOneSalleById,
+  getSallesByTheme,
+} from "../actions/salle.actions"; // Assurez-vous que le chemin d'importation est correct
 
 const initialState = {
   salle: {},
   salles: [],
+  salletheme: [],
   loading: false,
   error: null,
 };
@@ -24,6 +29,18 @@ export const salleSlice = createSlice({
       state.salles = [];
       state.loading = false;
       state.error = action.error.message;
+    });
+    builder.addCase(getSallesByTheme.pending, (state) => {
+      state.loading = true;
+    });
+    builder.addCase(getSallesByTheme.fulfilled, (state, action) => {
+      state.salletheme = action.payload;
+      state.loading = false;
+    });
+    builder.addCase(getSallesByTheme.rejected, (state, action) => {
+      state.salletheme = [];
+      state.loading = false;
+      state.error = action.payload;
     });
 
     builder.addCase(getOneSalleById.pending, (state) => {

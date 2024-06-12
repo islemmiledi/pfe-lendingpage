@@ -8,16 +8,19 @@ const Main = () => {
   const params = useParams();
   localStorage.setItem("id", params.salleId);
 
-  const data = useSelector((state) => state?.salle?.salle?.data?.homes);
   const salleId = localStorage.getItem("id");
-  const accueilsalle = useSelector(
-    (state) => state?.accueil?.accueilsuser?.data
-  );
+
+  const data = useSelector((state) => state?.salle?.salle?.data);
+
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getOneSalleById({ id: salleId }));
   }, [dispatch, salleId]);
+
+  const createDescriptionMarkup = (description) => {
+    return { __html: description.replace(/\n/g, "<br />") };
+  };
 
   return (
     <div
@@ -27,27 +30,25 @@ const Main = () => {
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
-        height: "100vh", // prend toute la hauteur de la fenêtre
+        height: "100vh", // Takes full height of the window
       }}
     >
-      {/* Contenu de la section principale ici */}
-      <div className="text-center">
-        {accueilsalle && accueilsalle.length > 0 && (
-          <img
-            src={accueilsalle[0].file}
-            alt="Logo"
-            className="absolute top-4 left-4 h-16 w-16 object-contain"
-          />
-        )}
+      {/* Main content section */}
+      <div className="text-center px-4">
         <h1
           className="text-6xl font-bold uppercase leading-none tracking-wide"
           style={{ color: "#fec600" }}
         >
-          Welcome to <br />{" "}
-          <span style={{ color: "#ffffff" }}>{data?.title}</span>
+          <br />{" "}
+          <span style={{ color: "bg-yellow-500" }}>
+            {data?.homes[0]?.title}
+          </span>
         </h1>
-        <p className="mt-4 text-lg font-light text-white">
-          {data?.description}
+        <p
+          className="mt-4 text-lg font-light text-white whitespace-pre-line"
+          style={{ maxWidth: "600px", margin: "0 auto" }}
+        >
+          {data?.homes[0]?.description}
         </p>
         <a
           href="#more"

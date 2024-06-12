@@ -10,8 +10,8 @@ const Contact = () => {
   return (
     <>
       <Header />
-      <Cont />
-      <ContactDetails />
+      {/* <Cont /> */}
+      {/* <ContactDetails /> */}
 
       <Main />
       <Footer />

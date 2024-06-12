@@ -7,13 +7,6 @@ const FooterS = () => {
   // Supposons que `footers` est un tableau d'objets footer
   // const data = useSelector((state) => state?.footer?.website?.data?.footers);
   const data = useSelector((state) => state?.salle?.salle?.data?.footers);
-  const salleId = localStorage.getItem("id");
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getOneSalleById({ id: salleId }));
-  }, [dispatch, salleId]);
-
   return (
     <footer className="bg-[#FFCB05]">
       {data &&

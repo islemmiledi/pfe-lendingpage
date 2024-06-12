@@ -1,0 +1,54 @@
+/* Services */
+
+#services {
+  padding: 60px 0;
+}
+
+.features-bg {
+  position: relative;
+  padding: 100px 0;
+  background-image: url("../assets/image/service.jfif"); /* Remplacez par le chemin réel de votre image */
+  background-size: cover;
+  background-position: center;
+}
+
+.card {
+  position: relative;
+  z-index: 2;
+  margin-top: -150px; /* Ajustez cette valeur pour déplacer les cartes vers le haut */
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+  width: 90%; /* Réduisez la largeur des cartes */
+  max-width: 300px; /* Limitez la largeur maximale des cartes */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+.card-img-top {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.card-title {
+  color: #e31c25;
+  font-family: "Oswald", sans-serif;
+  letter-spacing: -1px;
+}
+
+.card-text {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 500;
+}
+
+.set-bg {
+  background-image: url("../assets/image/service.jfif"); /* Chemin de votre image */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top center;
+}

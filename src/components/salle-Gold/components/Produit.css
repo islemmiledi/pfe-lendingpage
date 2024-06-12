@@ -1,0 +1,134 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap"); /* Import a custom font */
+
+.Apps {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.products-heading {
+  font-family: "Roboto", sans-serif;
+  font-size: 2.5em;
+  color: #e31c25;
+  margin-bottom: 30px;
+  text-align: center;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-bottom: 3px solid #e31c25;
+  padding-bottom: 10px;
+}
+
+.products-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.produit-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.produit-card-title {
+  font-size: 1.2em;
+  margin-bottom: 16px;
+}
+
+.produit-card-content {
+  display: flex;
+  align-items: center;
+}
+
+.produit-card-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 8px;
+  margin-right: 16px;
+}
+
+.produit-card-info {
+  flex-grow: 1;
+}
+
+.produit-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.produit-card-name {
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+.produit-card-price {
+  color: #2e7d32;
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+.produit-card-details p {
+  margin: 4px 0;
+}
+
+.detail {
+  font-weight: bold;
+}
+
+.produit-card-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 8px;
+}
+
+.quantity {
+  display: flex;
+  align-items: center;
+}
+
+.quantity-button {
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.quantity-value {
+  margin: 0 10px;
+  font-weight: bold;
+}
+
+.add-to-cart-button {
+  background-color: white; /* Default color */
+  border: 1px solid #ddd;
+  color: black;
+  padding: 10px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 16px; /* Space above the button */
+  align-self: center; /* Center the button horizontally */
+  width: 100%; /* Ensure the button takes the full width of the card */
+  max-width: 280px; /* Ensure the button has some margin from the edges */
+}
+
+.add-to-cart-button:hover {
+  background-color: #e31c25; /* Hover color */
+  color: white; /* Text color on hover */
+  border: none; /* Remove border on hover */
+}
